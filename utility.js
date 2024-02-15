@@ -14,6 +14,10 @@ function showElm(elmId) {
     const element = document.getElementById(elmId);
     element.classList.remove("hidden");
 }
+function addBackgrounfColor(elmId) {
+    let element = document.getElementById(elmId);
+    element.classList.add("bg-orange-400");
+}
 
 function continueGame() {
     // all alfabet
@@ -27,4 +31,6 @@ function continueGame() {
 
     let randomKeyP = document.getElementById("randomKeyP");
     randomKeyP.innerHTML = alfabet;
+
+    addBackgrounfColor(alfabet)
 }

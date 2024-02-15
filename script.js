@@ -3,4 +3,5 @@ function play() {
     showElm("playGroundSection");
 
     continueGame();
+
 }
