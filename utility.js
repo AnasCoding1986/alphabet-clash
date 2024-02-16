@@ -18,19 +18,8 @@ function addBackgrounfColor(elmId) {
     let element = document.getElementById(elmId);
     element.classList.add("bg-orange-400");
 }
-
-function continueGame() {
-    // all alfabet
-    let alfabetString = "abcdefghijklmnopqrstuvwxyz";
-    let alfabetArr = alfabetString.split("");
-
-    // get random number
-    let randomNum = Math.round(Math.random() * 25);
-
-    let alfabet = alfabetArr[randomNum];
-
-    let randomKeyP = document.getElementById("randomKeyP");
-    randomKeyP.innerHTML = alfabet;
-
-    addBackgrounfColor(alfabet)
+function removeBackgrounfColor(elmId) {
+    let element = document.getElementById(elmId);
+    element.classList.remove("bg-orange-400");
 }
+
