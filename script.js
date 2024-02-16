@@ -1,31 +1,26 @@
 function detectKey(e) {
     // pressedkey
     let pressedKey = e.key;
-    console.log("pressed key is", pressedKey);
 
     // currentalhabet
     let currentAlphabetElement = document.getElementById("randomKeyP");
     let currenalphabet = currentAlphabetElement.innerHTML;
-    console.log("current alphabet ",currenalphabet);
 
     // cheked
     if (pressedKey === currenalphabet) {
         // score
-        let scoreElm = document.getElementById("score");
-        let scoreInnerText = scoreElm.innerText;
-        let scoreInnerNum = parseInt(scoreInnerText);
-        scoreInnerNum = scoreInnerNum + 1;
-        scoreElm.innerText = scoreInnerNum;
-
-
+        let scoreVal = getElmVal("score");
+        scoreVal = scoreVal + 1;
+        changeElm("score", scoreVal);
         removeBackgrounfColor(currenalphabet);
         continueGame();
     }else{
-        let lifeElm = document.getElementById("life");
-        let lifeElmText = lifeElm.innerText;
-        let lifeElmNum = parseInt(lifeElmText);
-        lifeElmNum = lifeElmNum - 1;
-        lifeElm.innerText = lifeElmNum;
+        let lifeVal = getElmVal("life");
+        lifeVal = lifeVal - 1;
+        changeElm("life", lifeVal)
+        if (lifeVal === 0) {
+            gameOver();
+        }
     }
      
 }
@@ -50,7 +45,11 @@ function continueGame() {
 
 function play() {
     removeElm("homeSection");
+    removeElm("scoreSection");
     showElm("playGroundSection");
+
+    changeElm("life", 5);
+    changeElm("score", 0);
 
     continueGame();
 
